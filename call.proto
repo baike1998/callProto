@@ -1,0 +1,24 @@
+// 1指定的当前饰r0t0语法的版本，有23
+syntax = "proto3";
+//option go_package="path;:ndme";path表示生成的go文件的存放地址，会自动生成目录的
+//name表示生成g0文件所属的包名
+option go_package="../service/pb";
+//package service;
+//指定等会文件生成出来package
+message CallReq{
+  string caller = 1;
+  string callee = 2;
+  string call_line = 3;
+//  optional string password = 3;
+//  repeated string address = 4;
+}
+message CallRes {
+   string xnumber = 1;
+   string sessionId = 2;
+}
+
+// 定义服务体
+service CallService{
+  // 定义方法
+  rpc Bind(CallReq) returns (CallRes);
+}
